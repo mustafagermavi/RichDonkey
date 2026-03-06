@@ -1,13 +1,28 @@
-<div class="glass-card action-module">
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-        <i data-lucide="plus-circle" class="accent-color"></i>
-        <h3>Token Foundry</h3>
-    </div>
-    <label class="dim-text" style="font-size: 0.7rem;">TOKEN NAME</label>
-    <input type="text" class="premium-input" placeholder="e.g. Meme King">
+<div class="glass-card">
+    <h3 style="display:flex; gap:10px; align-items:center;">
+        <i data-lucide="zap" style="color:var(--accent)"></i> Token Foundry
+    </h3>
+    <p style="font-size:0.75rem; color:var(--dim); margin-bottom:15px;">Deploy new assets to the protocol instantly.</p>
     
-    <label class="dim-text" style="font-size: 0.7rem; margin-top: 15px; display: block;">SYMBOL</label>
-    <input type="text" class="premium-input" placeholder="e.g. $MKING">
+    <input type="text" id="tkName" class="premium-input" placeholder="Token Name (e.g. Kurd Moon)">
+    <input type="text" id="tkSym" class="premium-input" placeholder="Symbol (e.g. KMN)">
     
-    <button class="btn-launch">INITIALIZE DEPLOYMENT</button>
+    <button class="btn-launch" onclick="mintToken()">INITIALIZE DEPLOYMENT</button>
 </div>
+
+<script>
+    function mintToken() {
+        const name = document.getElementById('tkName').value;
+        const sym = document.getElementById('tkSym').value;
+        if(!name || !sym) return alert("Please fill all fields!");
+
+        // بانگکردنی فەنکشنی نوێکردنەوەی مارکێت لە script.js
+        if(typeof window.addNewTokenToMarket === "function") {
+            window.addNewTokenToMarket(name, sym);
+        }
+        
+        alert("🚀 Deployment Started for " + name);
+        document.getElementById('tkName').value = "";
+        document.getElementById('tkSym').value = "";
+    }
+</script>
