@@ -1,15 +1,37 @@
-<div class="sidebar" id="sidebar">
-    <div class="sidebar-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;">
-        <h2>Terminal Menu</h2>
+<div id="side-menu" class="side-drawer">
+    <div class="drawer-header">
+        <h3>COMMAND CENTER</h3>
+        <i data-lucide="x" onclick="toggleSide()" style="cursor:pointer;"></i>
     </div>
-    <div class="sidebar-links">
-        <a href="#" class="s-link"><i data-lucide="layout-dashboard"></i> Dashboard</a>
-        <a href="#" class="s-link"><i data-lucide="arrow-left-right"></i> Exchange</a>
-        <a href="#" class="s-link"><i data-lucide="wallet"></i> Portfolio</a>
-        <a href="#" class="s-link"><i data-lucide="settings"></i> Settings</a>
-    </div>
-    <div class="theme-control">
-        <span>Light Mode</span>
-        <input type="checkbox" id="themeSwitch">
+    <div class="drawer-links">
+        <a href="#"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+        <a href="#"><i data-lucide="rocket"></i> Launch Token</a>
+        <a href="#"><i data-lucide="arrow-left-right"></i> Swap Assets</a>
+        <a href="#"><i data-lucide="history"></i> Activity</a>
+        <div class="separator"></div>
+        <a href="#" style="color: #ff4d4d;"><i data-lucide="log-out"></i> Disconnect</a>
     </div>
 </div>
+
+<style>
+    .side-drawer {
+        position: fixed; top: 0; right: -320px; width: 300px; height: 100vh;
+        background: rgba(10, 10, 15, 0.98); border-left: 1px solid var(--border);
+        z-index: 2000; padding: 40px 20px; transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .side-drawer.open { right: 0; }
+    .drawer-header { display: flex; justify-content: space-between; margin-bottom: 40px; }
+    .drawer-links a {
+        display: flex; align-items: center; gap: 15px; padding: 15px;
+        color: white; text-decoration: none; border-radius: 12px; margin-bottom: 8px;
+        transition: 0.3s;
+    }
+    .drawer-links a:hover { background: rgba(255,255,255,0.05); color: var(--accent); }
+    .separator { height: 1px; background: var(--border); margin: 20px 0; }
+</style>
+
+<script>
+    function toggleSide() {
+        document.getElementById('side-menu').classList.toggle('open');
+    }
+</script>
