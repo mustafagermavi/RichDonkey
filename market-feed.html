@@ -1,1 +1,24 @@
+<div class="glass-card">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <h3 style="display:flex; gap:10px; align-items:center;">
+            <i data-lucide="activity" style="color:var(--accent)"></i> Live Factory Feed
+        </h3>
+        <span style="font-size:0.6rem; color:var(--accent); border:1px solid var(--accent); padding:2px 8px; border-radius:10px;">REAL-TIME</span>
+    </div>
+    
+    <div id="mList">
+        <div style="text-align:center; padding:20px; color:var(--dim); font-size:0.8rem;">
+            Waiting for new deployments...
+        </div>
+    </div>
+</div>
 
+<style>
+    .market-item {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 15px; background: rgba(255,255,255,0.02);
+        border-radius: 15px; border: 1px solid var(--border);
+        margin-bottom: 10px; animation: slideIn 0.4s ease-out;
+    }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+</style>
