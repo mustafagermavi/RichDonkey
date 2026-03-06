@@ -1,10 +1,31 @@
-<nav>
-    <div class="logo">
-        <i data-lucide="component" class="accent-color"></i>
-        MEME<span>CORP</span>
-    </div>
-    <div class="nav-tools">
-        <div class="status-pill">● System Active</div>
-        <i data-lucide="menu" class="menu-btn" onclick="toggleSidebar()" style="cursor:pointer"></i>
+<nav class="premium-nav">
+    <div class="logo">MEME<span>CORP</span></div>
+    <div class="nav-right">
+        <div class="network-badge">
+            <span class="pulse"></span> Ethereum Mainnet
+        </div>
+        <button class="menu-btn" onclick="toggleSide()">
+            <i data-lucide="menu"></i>
+        </button>
     </div>
 </nav>
+
+<style>
+    .premium-nav {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 15px 30px; background: rgba(255,255,255,0.02);
+        border-bottom: 1px solid var(--border); backdrop-filter: blur(10px);
+    }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .network-badge {
+        font-size: 0.7rem; font-weight: 800; color: var(--accent);
+        background: var(--accent-glow); padding: 6px 12px; border-radius: 50px;
+        display: flex; align-items: center; gap: 8px;
+    }
+    .pulse {
+        width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
+        box-shadow: 0 0 10px var(--accent); animation: pulse-anim 2s infinite;
+    }
+    @keyframes pulse-anim { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+    .menu-btn { background: none; border: 1px solid var(--border); color: white; padding: 8px; border-radius: 10px; cursor: pointer; }
+</style>
