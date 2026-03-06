@@ -1,81 +1,19 @@
-<div class="glass-card swap-module">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
-        <h3 style="font-weight: 800; letter-spacing: -0.5px;">Trade Terminal</h3>
-        <div class="trade-tabs">
-            <button class="tab-btn active" onclick="setTradeMode('buy')">BUY</button>
-            <button class="tab-btn" onclick="setTradeMode('sell')">SELL</button>
-        </div>
+<div class="glass-card">
+    <h3 style="display:flex; gap:10px; align-items:center; margin-bottom:20px;">
+        <i data-lucide="refresh-cw" style="color:var(--accent)"></i> Trade Terminal
+    </h3>
+    
+    <div class="premium-input" style="display:flex; justify-content:space-between; align-items:center;">
+        <input type="number" id="swapIn" placeholder="0.0" style="background:none; border:none; color:white; outline:none; width:70%; font-size:1.1rem; font-weight:700;">
+        <span style="color:var(--accent); font-weight:800; font-size:0.8rem;">ETH</span>
     </div>
-
-    <div class="input-group">
-        <label class="dim-text">Pay With</label>
-        <div class="input-wrap">
-            <input type="number" placeholder="0.00" id="payAmount">
-            <div class="asset-selector">
-                <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" width="20">
-                <span>ETH</span>
-            </div>
-        </div>
+    
+    <div style="text-align:center; margin:5px; color:var(--dim);"><i data-lucide="arrow-down" style="width:16px;"></i></div>
+    
+    <div class="premium-input" style="display:flex; justify-content:space-between; align-items:center;">
+        <input type="number" id="swapOut" placeholder="0.0" readonly style="background:none; border:none; color:white; outline:none; width:70%; font-size:1.1rem; font-weight:700;">
+        <span style="color:var(--accent); font-weight:800; font-size:0.8rem;">TOKEN</span>
     </div>
-
-    <div style="text-align: center; margin: -10px 0; position: relative; z-index: 2;">
-        <div class="swap-icon-circle">
-            <i data-lucide="arrow-down-up"></i>
-        </div>
-    </div>
-
-    <div class="input-group">
-        <label class="dim-text">Receive (Token)</label>
-        <div class="input-wrap">
-            <input type="number" placeholder="0.00" id="receiveAmount" readonly>
-            <div class="asset-selector search-trigger">
-                <span>Select Token</span>
-                <i data-lucide="chevron-down"></i>
-            </div>
-        </div>
-    </div>
-
-    <div class="trade-info">
-        <div class="info-row">
-            <span>Price Impact</span>
-            <span class="accent-color">0.05%</span>
-        </div>
-        <div class="info-row">
-            <span>Slippage</span>
-            <span>0.5%</span>
-        </div>
-    </div>
-
-    <button class="btn-launch" id="tradeBtn">EXECUTE TRADE</button>
+    
+    <button class="btn-launch" style="background:white; color:black; margin-top:15px;" onclick="alert('Trade Executed!')">EXECUTE SWAP</button>
 </div>
-
-<style>
-    .trade-tabs { background: rgba(0,0,0,0.2); padding: 4px; border-radius: 12px; display: flex; }
-    .tab-btn { 
-        padding: 6px 15px; border-radius: 8px; border: none; background: transparent; 
-        color: var(--dim); font-weight: 800; font-size: 0.7rem; cursor: pointer;
-    }
-    .tab-btn.active { background: var(--card); color: var(--accent); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-
-    .input-group { background: rgba(0,0,0,0.15); padding: 15px; border-radius: 20px; border: 1px solid var(--border); }
-    .input-wrap { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
-    .input-wrap input { 
-        background: transparent; border: none; color: white; font-size: 1.5rem; 
-        font-weight: 700; width: 60%; outline: none;
-    }
-
-    .asset-selector { 
-        background: var(--border); padding: 8px 12px; border-radius: 12px; 
-        display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 0.8rem; cursor: pointer;
-    }
-
-    .swap-icon-circle {
-        width: 36px; height: 36px; background: var(--bg); border: 2px solid var(--border);
-        border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
-        color: var(--accent); cursor: pointer; transition: 0.3s;
-    }
-    .swap-icon-circle:hover { transform: rotate(180deg); border-color: var(--accent); }
-
-    .trade-info { margin-top: 20px; padding: 0 5px; }
-    .info-row { display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 8px; color: var(--dim); }
-</style>
